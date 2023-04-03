@@ -3,6 +3,8 @@ package ej1;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		/* INICIO EJERCICIO 1 
 		for (int i=1;i<=10;i++) {
 			System.out.print(i);
 			System.out.print(" , ");
@@ -12,7 +14,12 @@ public class Main {
 			System.out.print(i);
 			System.out.print(" , ");
 		}
+		
+		FIN EJERCICIO 1 */
 
+		for(int i=0;i<10;i++) {
+			
+		}
 	}
 
 }
