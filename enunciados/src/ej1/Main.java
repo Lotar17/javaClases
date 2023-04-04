@@ -1,5 +1,7 @@
 package ej1;
 
+import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -16,10 +18,31 @@ public class Main {
 		}
 		
 		FIN EJERCICIO 1 */
-
+		
+		// ################################################## 
+		
+		/* INICIO EJERCICIO 2
+		String[] palabras = new String[10];
+		Scanner scanner = new Scanner(System.in);
 		for(int i=0;i<10;i++) {
-			
+			System.out.print("Ingrese la siguiente palabra:");
+			System.out.println();
+			palabras[i] = scanner.next();
+			System.out.println();
 		}
+		System.out.println();
+		for(int i=9;i>=0;i--) {
+			System.out.print(palabras[i]);
+			System.out.println();
+		}
+		scanner.close();
+		
+		FIN EJERCICIO 2 */
+		
+		// #########################################################
+		
+		
+		
 	}
 
 }
