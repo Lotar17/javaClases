@@ -41,9 +41,6 @@ public class Main {
 		
 		// #########################################################
 		
-		
-		/* INICIO EJERCICIO 3
-		
 		Scanner scanner = new Scanner(System.in);
 		String[] palabras = new String[10];
 		String palabra = new String();
@@ -69,34 +66,6 @@ public class Main {
 			System.out.print("LA PALABRA INGRESADA NO SE ENCUENTRA EN LA LISTA DE 10 PALABRAS");
 		}
 		scanner.close();
-		
-		
-		FIN EJERCICIO 3 */
-		
-		// ##############################################################
-		
-		int num, numero;
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("INGRESE UN NÚMERO");
-		System.out.println();
-		num = scanner.nextInt();
-		int[] numeros = new int[20];
-		
-		for(int i = 0; i<20; i++) {
-			System.out.print("ESCRIBA UN NÚMERO");
-			System.out.println();
-			numero = scanner.nextInt();
-			if (numero > num) {
-				numeros[i] = numero;
-			}
-			System.out.println();
-		}
-		for(int i=0;i<numeros.length;i++) {
-			System.out.println(numeros[i]);
-		}
-		
 	}
-	
-	
 
 }
