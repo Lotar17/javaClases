@@ -17,4 +17,13 @@ public class Vendedor extends Empleado {
 	public void setTotalVentas(int totalVentas) {
 		this.totalVentas = totalVentas;
 	}
+	
+	Vendedor (String dni, String nombre, String apellido, String email, float sueldoBase, int porcenComision, int totalVentas){
+		this.setNombre(nombre);
+		this.setApellido(apellido);
+		this.setEmail(email);
+		this.setSueldoBase(sueldoBase);
+		this.porcenComision = porcenComision;
+		this.totalVentas = totalVentas;
+	}
 }
