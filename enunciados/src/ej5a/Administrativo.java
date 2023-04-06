@@ -1,4 +1,4 @@
-package ej5;
+package ej5a;
 
 public class Administrativo extends Empleado{
 	private int hsExtra;
@@ -18,12 +18,27 @@ public class Administrativo extends Empleado{
 		this.hsMes = hsMes;
 	}
 	
+	public String getPuesto() {
+		return "ADMIN";
+	}
+	
 	Administrativo (String dni, String nombre, String apellido, String email, float sueldoBase, int hsExtra, int hsMes){
+		this.setDni(dni);
 		this.setNombre(nombre);
 		this.setApellido(apellido);
 		this.setEmail(email);
 		this.setSueldoBase(sueldoBase);
 		this.hsExtra = hsExtra;
 		this.hsMes = hsMes;
+	}
+	
+	@Override
+	public float getSueldoBase(){
+		return (float) (super.getSueldoBase() * ((this.hsExtra * 1.5) + this.hsMes) / this.hsMes);
+	}
+	
+	@Override
+	public String getDatos() {
+		return this.getPuesto()+ " " + super.getDatos() + " SUELDO TOTAL: $" + this.getSueldoBase();
 	}
 }

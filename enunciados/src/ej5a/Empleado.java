@@ -1,6 +1,6 @@
-package ej5;
+package ej5a;
 
-public class Empleado {
+public abstract class Empleado {
 	private String dni;
 	private String nombre;
 	private String apellido;
@@ -39,6 +39,10 @@ public class Empleado {
 	}
 	public void setSueldoBase(float sueldoBase) {
 		this.sueldoBase = sueldoBase;
+	}
+	
+	public String getDatos() {
+		return getDni() + " " + getNombre() + " " + getApellido(); 
 	}
 	
 	
