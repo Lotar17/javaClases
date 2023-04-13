@@ -1,4 +1,4 @@
-package ej5a;
+package ej5;
 
 public class Administrativo extends Empleado{
 	private int hsExtra;

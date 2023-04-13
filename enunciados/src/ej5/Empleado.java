@@ -1,4 +1,4 @@
-package ej5a;
+package ej5;
 
 public abstract class Empleado {
 	private String dni;

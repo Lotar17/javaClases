@@ -1,4 +1,4 @@
-package ej5a;
+package ej5;
 
 public class Vendedor extends Empleado {
 	private int porcenComision;
