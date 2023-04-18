@@ -35,9 +35,11 @@ public class Administrativo extends Empleado{
 	@Override
 	public float getSueldoBase(){
 		return (float) (super.getSueldoBase() * ((this.hsExtra * 1.5) + this.hsMes) / this.hsMes);
-	}
+	} 
 	
-	@Override
+	 // EL METODO getDatos() ESTA DE MAS, DEVOLVER CADA VALOR DE A UNO A LA VEZ
+	
+	@Override     
 	public String getDatos() {
 		return this.getPuesto()+ " " + super.getDatos() + " SUELDO TOTAL: $" + this.getSueldoBase();
 	}

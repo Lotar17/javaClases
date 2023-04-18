@@ -37,6 +37,7 @@ public class Vendedor extends Empleado {
 		return super.getSueldoBase() + (this.getPorcenComision()*this.getTotalVentas()/100);
 	}
 	
+	 // EL METODO getDatos() ESTA DE MAS DEVOLVER CADA VALOR DE A UNO A LA VEZ
 	@Override
 	public String getDatos() {
 		return this.getPuesto()+ " " + super.getDatos() + " SUELDO TOTAL: $" + this.getSueldoBase();

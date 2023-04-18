@@ -34,14 +34,18 @@ public abstract class Empleado {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public float getSueldoBase() {
+	
+	
+	public abstract float getSueldoBase() {
 		return sueldoBase;
 	}
 	public void setSueldoBase(float sueldoBase) {
 		this.sueldoBase = sueldoBase;
 	}
 	
-	public String getDatos() {
+	 // EL METODO getDatos() ESTA DE MAS, DEVOLVER CADA VALOR DE A UNO A LA VEZ
+	
+	public   String getDatos() {
 		return getDni() + " " + getNombre() + " " + getApellido(); 
 	}
 	

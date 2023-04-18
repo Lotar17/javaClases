@@ -79,13 +79,13 @@ public class Main5 {
 		/* INICIO EJERCICIO 5 B APARTADO 4
 		int num, numero;
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("INGRESE UN NÚMERO");
+		System.out.print("INGRESE UN Nï¿½MERO");
 		System.out.println();
 		num = scanner.nextInt();
 		ArrayList<Integer> numeros = new ArrayList<Integer>();
 		
 		for(int i = 0; i<20; i++) {
-			System.out.print("ESCRIBA UN NÚMERO");
+			System.out.print("ESCRIBA UN Nï¿½MERO");
 			System.out.println();
 			numero = scanner.nextInt();
 			if (numero > num) {
@@ -152,8 +152,8 @@ public class Main5 {
 		}
 		System.out.println();
 		if (empleados.isEmpty() == false) {
-			for(int i=0;i<empleados.size();i++) {
-				System.out.print(empleados.get(i).getDatos());
+			for(Empleado e: empleados) {
+				System.out.print(e.getDatos());
 				System.out.println();
 			}
 		}
