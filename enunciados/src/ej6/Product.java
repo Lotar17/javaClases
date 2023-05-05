@@ -1,4 +1,3 @@
-package ej6;
 
 public class Product {
 	private int id;
@@ -44,4 +43,5 @@ public class Product {
 	public void setShippingIncluded(boolean shippingIncluded) {
 		this.shippingIncluded = shippingIncluded;
 	}
+	
 }
