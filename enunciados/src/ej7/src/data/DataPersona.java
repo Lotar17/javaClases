@@ -95,6 +95,56 @@ public class DataPersona {
 		return p;
 	}
 	
+	public LinkedList<Persona> getByApellido(String apellido){
+		DataRol dr = new DataRol();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		LinkedList<Persona> pers = new LinkedList<>();
+		try {
+			stmt= DbConnector.getInstancia().getConn().prepareStatement("select id,nombre,apellido,tipo_doc,nro_doc,email,tel,habilitado from persona WHERE apellido = ?");
+			stmt.setString(1, apellido);
+			rs= stmt.executeQuery();
+			
+			//intencionalmente no se recupera la password
+			if(rs!=null) {
+				while(rs.next()) {
+					Persona p=new Persona();
+					p.setDocumento(new Documento());
+					p.setId(rs.getInt("id"));
+					p.setNombre(rs.getString("nombre"));
+					p.setApellido(rs.getString("apellido"));
+					p.getDocumento().setTipo(rs.getString("tipo_doc"));
+					p.getDocumento().setNro(rs.getString("nro_doc"));
+					p.setEmail(rs.getString("email"));
+					p.setTel(rs.getString("tel"));
+					
+					p.setHabilitado(rs.getBoolean("habilitado"));
+					
+					dr.setRoles(p);
+					
+					pers.add(p);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return pers;
+		
+		
+	}
+	
 	public Persona getByDocumento(Persona per) {
 		DataRol dr=new DataRol();
 		Persona p=null;
@@ -173,6 +223,54 @@ public class DataPersona {
             }
 		}
     }
+	
+	
+	public Persona getOne(int id) {
+		DataRol dr = new DataRol();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		Persona pers = new Persona();
+		try {
+			stmt= DbConnector.getInstancia().getConn().prepareStatement("select id,nombre,apellido,tipo_doc,nro_doc,email,tel,habilitado from persona WHERE id = ?");
+			stmt.setInt(1, id);
+			rs= stmt.executeQuery();
+			
+			//intencionalmente no se recupera la password
+			if(rs!=null) {
+				while(rs.next()) {
+					Persona p=new Persona();
+					p.setDocumento(new Documento());
+					p.setId(rs.getInt("id"));
+					p.setNombre(rs.getString("nombre"));
+					p.setApellido(rs.getString("apellido"));
+					p.getDocumento().setTipo(rs.getString("tipo_doc"));
+					p.getDocumento().setNro(rs.getString("nro_doc"));
+					p.setEmail(rs.getString("email"));
+					p.setTel(rs.getString("tel"));
+					
+					p.setHabilitado(rs.getBoolean("habilitado"));
+					
+					dr.setRoles(p);
+					
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return pers;
+	}
 
 	
 }

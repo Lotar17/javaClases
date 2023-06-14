@@ -19,5 +19,6 @@ public class Rol {
 	public String toString() {
 		return "Rol [id=" + id + ", descripcion=" + descripcion + "]";
 	}
+	
 
 }
