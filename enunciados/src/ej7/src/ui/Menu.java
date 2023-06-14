@@ -141,8 +141,15 @@ public class Menu {
 	}
 	
 	private String edit() {
-		System.out.println("INGRESE EL DNI DE LA PERSONA A EDITAR");
-		Persona p = ctrlLogin.getById(Integer.parseInt(s.nextLine()));
+		Persona p = new Persona();
+		Documento d = new Documento();
+		System.out.println("INGRESE EL TIPO DE DOCUMENTO DE LA PERSONA");
+		d.setTipo(s.nextLine());
+		System.out.println("INGRESE EL NRO DE DOCUMENTO DE LA PERSONA");
+		d.setNro(s.nextLine());
+		p.setDocumento(d);
+		ctrlLogin.getByDocumento(p);
+		
 		
 	}
 	

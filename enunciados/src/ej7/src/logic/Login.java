@@ -62,8 +62,5 @@ public class Login {
 		dp.add(p);
 	}
 	
-	public Persona getById(int id) {
-		return dp.getOne(id);
-	}
 	
 }
