@@ -62,5 +62,14 @@ public class Login {
 		dp.add(p);
 	}
 	
+	public void updatePersona(Persona p) {
+		p.setPassword(getSHA256Hash(p.getPassword()));
+		dp.update(p);
+	}
+	
+	public void deleteByDocumento(Persona p) {
+		dp.deleteByDocumento(p);
+	}
+	
 	
 }

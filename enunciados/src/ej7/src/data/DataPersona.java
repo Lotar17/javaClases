@@ -224,6 +224,74 @@ public class DataPersona {
 		}
     }
 	
+	public void update(Persona p) {
+		PreparedStatement stmt= null;
+		ResultSet keyResultSet=null;
+		try {
+			stmt=DbConnector.getInstancia().getConn().
+					prepareStatement(
+							"UPDATE persona SET nombre = ?, apellido = ?, tipo_doc = ?, nro_doc = ?, email = ?, password = ?, tel = ?, habilitado = ? WHERE id = ?",
+							PreparedStatement.RETURN_GENERATED_KEYS
+							);
+			stmt.setString(1, p.getNombre());
+			stmt.setString(2, p.getApellido());
+			stmt.setString(3, p.getDocumento().getTipo());
+			stmt.setString(4, p.getDocumento().getNro());
+			stmt.setString(5, p.getEmail());
+			stmt.setString(6, p.getPassword());
+			stmt.setString(7, p.getTel());
+			stmt.setBoolean(8, p.isHabilitado());
+			stmt.setInt(9, p.getId());
+			stmt.executeUpdate();
+			
+			keyResultSet=stmt.getGeneratedKeys();
+            if(keyResultSet!=null && keyResultSet.next()){
+                p.setId(keyResultSet.getInt(1));
+            }
+
+			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(keyResultSet!=null)keyResultSet.close();
+                if(stmt!=null)stmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+		
+	}
+	
+	public void deleteByDocumento(Persona p) {
+		PreparedStatement stmt= null;
+		ResultSet keyResultSet=null;
+		try {
+			stmt=DbConnector.getInstancia().getConn().
+					prepareStatement(
+							"DELETE FROM persona WHERE tipo_doc = ? AND nro_doc = ?",
+							PreparedStatement.RETURN_GENERATED_KEYS
+							);
+			stmt.setString(1, p.getDocumento().getTipo());
+			stmt.setString(2, p.getDocumento().getNro());
+			stmt.executeUpdate();	
+			keyResultSet=stmt.getGeneratedKeys();
+            if(keyResultSet!=null && keyResultSet.next()){
+                p.setId(keyResultSet.getInt(1));
+            }			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(keyResultSet!=null)keyResultSet.close();
+                if(stmt!=null)stmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
 	
 
 	

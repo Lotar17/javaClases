@@ -51,6 +51,7 @@ public class Menu {
 			
 			break;
 		case "delete":
+			System.out.println(delete());
 			
 			break;
 		default:
@@ -143,13 +144,56 @@ public class Menu {
 	private String edit() {
 		Persona p = new Persona();
 		Documento d = new Documento();
+		Rol r = new Rol();
 		System.out.println("INGRESE EL TIPO DE DOCUMENTO DE LA PERSONA");
 		d.setTipo(s.nextLine());
 		System.out.println("INGRESE EL NRO DE DOCUMENTO DE LA PERSONA");
 		d.setNro(s.nextLine());
 		p.setDocumento(d);
-		ctrlLogin.getByDocumento(p);
+		p = ctrlLogin.getByDocumento(p);
+		System.out.println("INGRESE EL NOMBRE DE LA PERSONA:");
+		p.setNombre(s.nextLine());
+		System.out.println("INGRESE EL APELLIDO DE LA PERSONA");
+		p.setApellido(s.nextLine());
+		System.out.println("INGRESE EL TELEFONO DE LA PERSONA");
+		p.setTel(s.nextLine());
+		System.out.println("INGRESE SI LA PERSONA ESTA HABILITADA O NO (si O no):");
+		if (s.nextLine().equalsIgnoreCase("si")) {
+			p.setHabilitado(true);
+		}
+		else {
+			p.setHabilitado(false);
+		}
+		System.out.println("INGRESE EL ROL DE LA PERSONA (admin O user)");
+		if (s.nextLine().equalsIgnoreCase("admin")) {
+			r.setId(1);
+			r.setDescripcion("admin");
+		}
+		else {
+			r.setId(2);
+			r.setDescripcion("user");
+		}
+		p.addRol(r);
+		System.out.println("INGRESE EL EMAIL DE LA PERSONA");
+		p.setEmail(s.nextLine());
+		System.out.println("INGRESE LA CONTRASEÑA DE LA PERSONA");
+		p.setPassword(s.nextLine());
+		ctrlLogin.updatePersona(p);
+		return "PERSONA EDITADA CON EXITO";
 		
+		
+	}
+	
+	private String delete() {
+		Persona p = new Persona();
+		Documento d = new Documento();
+		System.out.println("INGRESE EL TIPO DE DOCUMENTO DE LA PERSONA");
+		d.setTipo(s.nextLine());
+		System.out.println("INGRESE EL NRO DE DOCUMENTO DE LA PERSONA");
+		d.setNro(s.nextLine());
+		p.setDocumento(d);
+		ctrlLogin.deleteByDocumento(p);
+		return "Persona borrada con exito";
 		
 	}
 	
